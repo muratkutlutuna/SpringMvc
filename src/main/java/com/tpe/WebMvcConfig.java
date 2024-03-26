@@ -21,11 +21,10 @@ public class WebMvcConfig  implements WebMvcConfigurer {
     public InternalResourceViewResolver resolver() {
 
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setViewClass(JstlView.class); //JavaStandartLibrary -->t to write less code inside jsp
-        resolver.setPrefix("/WEB-INF/views"); //indicating location of view files
+        resolver.setViewClass(JstlView.class); //JavaStandartLibrary --> to write less code inside jsp
+        resolver.setPrefix("/WEB-INF/views/"); //indicating location of view files
         resolver.setSuffix(".jsp"); //extensions of view files
-
-        return resolver();
+        return resolver;
     }
 
     /**

@@ -1,6 +1,5 @@
 package com.tpe;
 
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 //instead of web.xml we will use config classes

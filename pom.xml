@@ -17,7 +17,8 @@
     <hibernate.version>6.4.4.Final</hibernate.version>
     <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
     <postgresql.connector.version>42.7.2</postgresql.connector.version>
-    <jakarta.servlet.jsp.jstl.version>3.0.0</jakarta.servlet.jsp.jstl.version>
+    <jakarta.servlet.jsp.jstl.api.version>3.0.0</jakarta.servlet.jsp.jstl.api.version>
+    <jakarta.servlet.jsp.jstl.version>3.0.1</jakarta.servlet.jsp.jstl.version>
     <taglib.version>1.2.5</taglib.version>
     <logback.version>1.5.3</logback.version>
     <jackson.version>2.17.0</jackson.version>
@@ -94,6 +95,12 @@
     <dependency>
       <groupId>jakarta.servlet.jsp.jstl</groupId>
       <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+      <version>${jakarta.servlet.jsp.jstl.api.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl -->
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
       <version>${jakarta.servlet.jsp.jstl.version}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.apache.taglibs/taglibs-standard-impl -->

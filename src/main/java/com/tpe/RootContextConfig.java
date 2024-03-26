@@ -22,7 +22,7 @@ public class RootContextConfig {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource()); //properties for JDBC
         sessionFactory.setHibernateProperties(hibernateProperties()); //properties for Hibernate
-        sessionFactory.setAnnotatedPackages("com.tpe.domain"); //location for entity classes
+        sessionFactory.setPackagesToScan(new String[]{"com.tpe.domain"}); //location for entity classes
         return sessionFactory;
     }
 
