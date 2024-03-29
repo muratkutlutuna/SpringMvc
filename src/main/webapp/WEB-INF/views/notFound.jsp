@@ -13,7 +13,9 @@
 </head>
 
 <body>
+<h1>
 ${message}
+</h1>
 <div>
 404
 </div>

@@ -1,0 +1,120 @@
+1. What is IOC? (Inversion of Control)
+giving control to spring
+2. What is Dependency Injection?
+dependency are injected from other parts so save memory
+3. What is the difference between @Component and @Bean?
+component is class level beans is method level
+4. Can I write @Bean to all methods?
+we write it on the methods that we need to create obj and use them again
+
+public Random printRandomNumber(){ //if returns something (instead of void) then we do not use @Bean
+    Random random = new Random;
+    System.out.println(random);
+    return random;
+}
+5. What is Spring MVC?
+6. Servlet
+7. Dispatcher Servlet
+8. 3 layer architecture
+
+gpt's answer
+
+1.a. Inversion of Control (IOC) is a design principle in software engineering where the control
+over the flow of a program is transferred from the program itself to a framework or container.
+In simpler terms, it means that rather than a class managing the creation and lifecycle of its dependencies,
+it delegates this responsibility to an external entity. This helps in decoupling components,
+making the code more modular and easier to maintain. In Spring Boot, IOC is achieved through Dependency Injection (DI),
+where dependencies are injected into a class rather than created internally.
+
+// Without IOC
+public class MyClass {
+    private MyDependency dependency = new MyDependency();
+
+    public void doSomething() {
+        dependency.doAction();
+    }
+}
+// With IOC (Dependency Injection)
+public class MyClass {
+    private MyDependency dependency;
+
+    public MyClass(MyDependency dependency) {
+        this.dependency = dependency;
+    }
+
+    public void doSomething() {
+        dependency.doAction();
+    }
+}
+
+
+1.b. IOC is about outsourcing the management of object creation and dependencies to a framework or container.
+
+2.a. Dependency Injection (DI) is a design pattern commonly used to implement Inversion of Control (IOC).
+It involves injecting the dependencies of a class from the outside rather than creating them within the class itself.
+This reduces the coupling between classes, making them more reusable and easier to test.
+In Spring Boot, DI is typically achieved through constructor injection, setter injection, or field injection.
+
+public class MyClass {
+    private MyDependency dependency;
+
+    public MyClass(MyDependency dependency) {
+        this.dependency = dependency;
+    }
+
+    public void doSomething() {
+        dependency.doAction();
+    }
+}
+
+2.b. Dependency Injection is about passing dependencies into a class rather than creating them inside the class.
+
+3.a. In Spring Boot, @Component is a stereotype annotation used to mark a class as a Spring component.
+It allows the class to be automatically detected and configured by the Spring framework.
+Classes annotated with @Component are eligible for auto-detection and instantiation as Spring beans.
+
+@Component
+public class MyComponent {
+    // Class implementation
+}
+
+3.b. In Spring Boot, @Bean is a method-level annotation used to explicitly declare a bean in the Spring configuration.
+It is typically used when you want to customize the bean creation process or when the class is not under
+your control (e.g., third-party library).
+
+@Configuration
+public class AppConfig {
+    @Bean
+    public MyBean myBean() {
+        return new MyBean();
+    }
+}
+
+
+4.a. No, @Bean is typically used at the method level to explicitly declare individual beans within a configuration class.
+
+4.b. @Bean is meant to be used at the method level for declaring specific beans.
+
+5.a. Spring MVC (Model-View-Controller) is a web framework built on top of the Spring framework.
+It provides a structured approach to developing web applications by separating concerns into three distinct layers:
+the model (business logic and data), the view (presentation layer), and
+the controller (handles user input and coordinates the flow of data).
+
+5.b. Spring MVC is a framework for building web applications using the model-view-controller design pattern.
+
+6.a. A servlet is a Java class that extends the capabilities of servers and responds to requests.
+It operates as a server-side component managing the request-response cycle for Java-based web applications.
+
+6.b. Servlets are Java classes used to handle requests and responses on a web server.
+
+7.a. The Dispatcher Servlet is the front controller in the Spring MVC framework. It receives all incoming requests
+and dispatches them to the appropriate handlers (controllers) based on URL mappings defined in the application's configuration.
+
+7.b. Dispatcher Servlet is the central component in Spring MVC that handles incoming requests and manages the flow of control.
+
+8.a. The 3-layer architecture, also known as the three-tier architecture, is a software design pattern
+that divides an application into three layers: the presentation layer (UI), the business logic layer (application logic),
+and the data access layer (database interaction). This separation enhances modularity, scalability, and maintainability.
+
+8.b. The 3-layer architecture divides an application into presentation, business, and data access layers
+for better organization and separation of concerns.

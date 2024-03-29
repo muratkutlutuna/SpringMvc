@@ -9,6 +9,10 @@ body {
 .container {
     width: 80%;
     margin: 0 auto;
+    background-image: url(../images/edu.jpeg); /* Path to your background image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    padding: 20px; /* Add padding to make content readable */
 }
 
 h1, h2, h3, h4, h5, h6 {

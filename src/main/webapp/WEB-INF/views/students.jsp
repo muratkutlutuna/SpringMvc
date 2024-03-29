@@ -25,7 +25,7 @@
                 <th>CreateDate</th>
             </tr>
 
-            <c:forEach items="${students}" var="student" varStatus="status">
+            <c:forEach items="${studentList}" var="student" varStatus="status">
 
                 <!-- create an "update" link with student id -->
                 <c:url var="updateLink" value="/students/update">

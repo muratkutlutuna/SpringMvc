@@ -4,6 +4,7 @@ import com.tpe.domain.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +21,8 @@ public class StudentRepositoryImp implements StudentRepository{
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
 
-        session.persist(student);
+        session.saveOrUpdate(student); //if there is no object with same id,
+        // new object will be saved to DB. If there is obj with the same id, it will update the obj
 
         tx.commit();
         session.close();
@@ -42,11 +44,28 @@ public class StudentRepositoryImp implements StudentRepository{
 
     @Override
     public Optional<Student> findById(Long id) {
-        return Optional.empty();
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        Student student = session.get(Student.class, id);
+        tx.commit();
+        session.close();
+
+//        Student student = sessionFactory.getCurrentSession().getReference(Student.class, id);
+        return Optional.ofNullable(student);// this student maybe null also
+        //if it is null, it will return empty obj
     }
 
     @Override
     public void delete(Long id) {
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        Student student = session.getReference(Student.class, id);
 
+        session.remove(student);
+        tx.commit();
+        session.close();
+
+//        Student student = sessionFactory.getCurrentSession().getReference(Student.class, id);
+//        sessionFactory.getCurrentSession().remove(student);
     }
 }
